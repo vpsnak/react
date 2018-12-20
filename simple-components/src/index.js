@@ -2,36 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Image extends React.Component {
-    render() {
+const Image = (props) => {
+    return (
+        <img className={props.class} src={props.src} alt={props.alt} />
+    );
+};
+
+const Button = (props) => {
+    if (props.text) {
         return (
-            <img className={this.props.class} src={this.props.src} alt={this.props.alt} />
+            <button className={props.class}>{props.text}</button>
+        );
+    } else {
+        return (
+            <pre>Button text attribute is null</pre>
         );
     }
-}
+};
 
-class Button extends React.Component {
-    render() {
-        if (this.props.text) {
-            return (
-                <button className={this.props.class}>{this.props.text}</button>
-            );
-        } else {
-            return (
-                <pre>Button text attribute is null</pre>
-            );
-        }
-    }
-}
-
-class BgImage extends React.Component {
-    render() {
-        return (
-            <div className={this.props.class} style={this.props.style}>
-            </div>
-        );
-    }
-}
+const BgImage = (props) => {
+    return (
+        <div className={props.class} style={props.style}>
+        </div>
+    );
+};
 
 ReactDOM.render(
     <div>
